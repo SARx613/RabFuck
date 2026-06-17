@@ -57,12 +57,10 @@ function initSelectionPage() {
           <img alt="${p.name}" loading="lazy" src="${p.image}">
         </div>
         <div class="product-info">
-          <p class="product-name" translate="no">${p.name}</p>
-          ${p.meta ? `<p class="product-meta">${p.meta}</p>` : ""}
+          <p class="product-name" translate="no" style="font-size: 16px; display: inline; letter-spacing: -0.02rem; height: fit-content; font-weight: 800; color: rgb(10, 17, 18);">${p.name}</p>
         </div>
         <div class="radio">
           <input type="checkbox" ${selected.has(p.id) ? "checked" : ""}>
-          <span></span>
         </div>`;
       li.addEventListener("click", () => toggle(p.id));
       listEl.appendChild(li);

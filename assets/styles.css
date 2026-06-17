@@ -40,20 +40,20 @@ button { font-family: Manrope, sans-serif; }
 
 /* ===== App layout ===== */
 .app {
-  position: relative;
-  display: flex;
   flex-direction: column;
-  width: 100%;
+  gap: 12px;
   max-width: 600px;
   height: 100dvh;
   margin: 0 auto;
+  display: flex;
+  position: relative;
 }
 
 .content {
-  flex: 1;
-  display: flex;
   flex-direction: column;
+  flex: 1;
   height: 100%;
+  display: flex;
   overflow-y: auto;
 }
 
@@ -332,7 +332,7 @@ button { font-family: Manrope, sans-serif; }
   padding-bottom: env(safe-area-inset-bottom);
   backface-visibility: hidden;
   will-change: transform;
-  background-color: var(--bg);
+  background-color: #fafafa;
   position: fixed;
   bottom: 0;
   left: 0;
