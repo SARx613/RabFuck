@@ -407,10 +407,10 @@ button { font-family: Manrope, sans-serif; }
   left: 0;
   top: 0;
   bottom: 0;
-  width: 60px;
+  width: 0;
   background: var(--dark);
   border-radius: 16px;
-  transition: width 0.05s linear;
+  transition: width 0.05s linear, background-color 0.05s linear;
 }
 
 .slide-track {

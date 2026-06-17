@@ -140,7 +140,6 @@ function initConfirmedList() {
   const items = Store.products();
   renderReadOnlyList(el, items);
 
-  // Pickup code (stable per session if already generated).
   const codeEl = document.getElementById("pickupCode");
   if (codeEl) {
     let code = sessionStorage.getItem("rabieta:code");
@@ -159,6 +158,12 @@ function initConfirmedList() {
       window.location.href = "./index.html";
     });
   }
+}
+
+/* ---------- Page 3b: simple confirmation (auto-redirect) ---------- */
+function initConfirmado() {
+  const main = document.querySelector(".confirmado-main");
+  if (!main) return;
 }
 
 function renderReadOnlyList(el, items) {
@@ -187,4 +192,5 @@ document.addEventListener("DOMContentLoaded", () => {
   initSelectionPage();
   initRetiroPage();
   initConfirmedList();
+  initConfirmado();
 });

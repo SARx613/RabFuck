@@ -1,0 +1,58 @@
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap");
+
+.confirmado-main {
+  box-sizing: border-box;
+  background-color: #f87171;
+  flex-direction: column;
+  width: 100%;
+  max-width: 480px;
+  min-height: 100dvh;
+  margin: 0 auto;
+  padding: 0 18px;
+  display: flex;
+}
+
+.confirmado-main .header {
+  padding: 12px 18px;
+  background: transparent;
+}
+
+.confirmado-main .title-text {
+  color: var(--ink);
+}
+
+.confirmado-body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+  padding-bottom: 80px;
+}
+
+.confirmado-check {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background: #e8e8e8;
+  color: #3bd58b;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: pop 0.4s cubic-bezier(0.18, 0.89, 0.32, 1.28);
+}
+
+.confirmado-title {
+  font-family: Manrope, sans-serif;
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--ink);
+  letter-spacing: -0.02rem;
+  text-align: center;
+}
+
+@keyframes pop {
+  from { transform: scale(0); opacity: 0; }
+  to   { transform: scale(1); opacity: 1; }
+}

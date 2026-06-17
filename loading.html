@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <meta name="theme-color" content="#fafafa">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <title>Rabieta · Cargando</title>
+  <link rel="icon" type="image/svg+xml" href="./assets/favicon.svg">
+  <link rel="stylesheet" href="./assets/styles.css">
+  <link rel="stylesheet" href="./assets/loading.css">
+</head>
+<body>
+  <div class="loading-page">
+    <div class="loading-content">
+      <img src="./assets/skipit-logo.svg" alt="Skipit" class="loading-logo">
+      <div class="loading-spinner"></div>
+    </div>
+  </div>
+
+  <script>
+    setTimeout(function() {
+      window.location.href = "./confirmado.html";
+    }, 2500);
+  </script>
+</body>
+</html>
