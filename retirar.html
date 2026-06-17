@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="theme-color" content="#ffffff">
+  <title>Rabieta · Confirmar retiro</title>
+  <link rel="icon" type="image/svg+xml" href="./assets/favicon.svg">
+  <link rel="stylesheet" href="./assets/styles.css">
+</head>
+<body>
+  <div class="app">
+    <div class="content">
+      <!-- Header with back button -->
+      <header class="header">
+        <button class="back-button" id="backBtn" type="button" aria-label="Volver">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M15 18L9 12L15 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+          </svg>
+        </button>
+        <div class="title">
+          <p class="title-text">Confirmar retiro</p>
+        </div>
+      </header>
+
+      <!-- Main content -->
+      <div class="main-content">
+        <div class="info-container">
+          <div class="info-box">
+            <p class="info-primary">Deslizá para confirmar.</p>
+            <p class="info-secondary">Mostrá esta pantalla en el mostrador.</p>
+          </div>
+        </div>
+
+        <!-- Selected products summary -->
+        <ul class="product-list" id="summaryList"></ul>
+      </div>
+
+      <!-- Slide-to-confirm -->
+      <div class="action-buttons">
+        <div class="slide-container" id="slideContainer">
+          <div class="slide-fill" id="slideFill"></div>
+          <div class="slide-track">
+            <span class="slide-label" id="slideLabel">Deslizá para retirar</span>
+          </div>
+          <div class="slide-thumb" id="slideThumb">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M9 6L15 12L9 18" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"></path>
+            </svg>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="./assets/app.js"></script>
+  <script src="./assets/slider.js"></script>
+</body>
+</html>
