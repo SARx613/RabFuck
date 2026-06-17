@@ -22,9 +22,8 @@
   --safe-bottom: env(safe-area-inset-bottom, 0px);
 }
 
-html, body {
+html {
   height: 100%;
-  min-height: 100%;
 }
 
 body {
@@ -35,10 +34,8 @@ body {
   background-color: var(--bg);
   color: var(--ink);
   scroll-behavior: smooth;
-  width: 100%;
-  min-height: 100dvh;
-  overflow-y: auto;
-  -webkit-overflow-scrolling: touch;
+  height: 100%;
+  overflow: hidden;
 }
 
 button { font-family: Manrope, sans-serif; }
@@ -46,12 +43,12 @@ button { font-family: Manrope, sans-serif; }
 /* ===== App layout ===== */
 .app {
   flex-direction: column;
-  gap: 12px;
   max-width: 600px;
-  min-height: 100dvh;
+  height: 100%;
   margin: 0 auto;
   display: flex;
   position: relative;
+  overflow: hidden;
 }
 
 .content {
@@ -59,8 +56,8 @@ button { font-family: Manrope, sans-serif; }
   flex: 1;
   display: flex;
   overflow-y: auto;
+  overflow-x: hidden;
   -webkit-overflow-scrolling: touch;
-  padding-bottom: 60px;
 }
 
 /* ===== Header ===== */
