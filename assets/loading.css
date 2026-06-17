@@ -1,0 +1,37 @@
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap");
+
+.loading-page {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100dvh;
+  background-color: #fafafa;
+}
+
+.loading-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
+}
+
+.loading-logo {
+  width: 180px;
+  height: auto;
+}
+
+.loading-spinner {
+  width: 60px;
+  height: 60px;
+  border: 7px solid transparent;
+  border-top: 7px solid #3bd58b;
+  border-right: 7px solid #3bd58b;
+  border-bottom: 7px solid #3bd58b;
+  border-radius: 50%;
+  animation: spin 0.9s linear infinite;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}

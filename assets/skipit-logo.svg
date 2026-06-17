@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 80" width="200" height="80">
+  <!-- Frog icon -->
+  <g transform="translate(5,10)">
+    <path d="M35 55 C35 55 28 50 20 42 C12 34 8 28 5 20 C2 12 6 4 14 2 C22 0 28 6 30 10 L32 6 C34 2 40 -2 48 2 C56 6 56 14 52 20 C48 28 42 34 38 38" fill="#3bd58b" stroke="none"/>
+    <circle cx="18" cy="12" r="3" fill="white"/>
+    <circle cx="44" cy="12" r="3" fill="white"/>
+    <circle cx="18" cy="12" r="1.5" fill="#3bd58b"/>
+    <circle cx="44" cy="12" r="1.5" fill="#3bd58b"/>
+    <path d="M25 55 Q31 65 37 55" fill="none" stroke="#3bd58b" stroke-width="3" stroke-linecap="round"/>
+    <path d="M5 45 C0 50 -2 58 5 60 C10 61 15 58 18 55" fill="#3bd58b" stroke="none"/>
+    <path d="M47 40 C52 45 58 50 55 58 C52 62 46 60 43 55" fill="#3bd58b" stroke="none"/>
+  </g>
+  <!-- "skipit" text -->
+  <text x="68" y="55" font-family="Manrope, sans-serif" font-weight="800" font-size="36" fill="#0a1112" letter-spacing="-1">skipit</text>
+</svg>
