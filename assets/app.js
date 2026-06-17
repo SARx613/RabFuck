@@ -9,26 +9,8 @@ const PRODUCTS = [
   {
     id: "pinta-ingreso",
     name: "Pinta ingreso",
-    meta: "Cerveza artesanal",
-    image: "./assets/beer.svg",
-  },
-  {
-    id: "rubia",
-    name: "Rabieta Rubia",
-    meta: "Golden Ale · 500ml",
-    image: "./assets/beer.svg",
-  },
-  {
-    id: "roja",
-    name: "Rabieta Roja",
-    meta: "Irish Red Ale · 500ml",
-    image: "./assets/beer.svg",
-  },
-  {
-    id: "negra",
-    name: "Rabieta Negra",
-    meta: "Stout · 500ml",
-    image: "./assets/beer.svg",
+    meta: "",
+    image: "https://assets.skipit.com.ar/60/cropped_1768234365786.webp",
   },
 ];
 
@@ -76,7 +58,7 @@ function initSelectionPage() {
         </div>
         <div class="product-info">
           <p class="product-name" translate="no">${p.name}</p>
-          <p class="product-meta">${p.meta}</p>
+          ${p.meta ? `<p class="product-meta">${p.meta}</p>` : ""}
         </div>
         <div class="radio">
           <input type="checkbox" ${selected.has(p.id) ? "checked" : ""}>
@@ -96,7 +78,7 @@ function initSelectionPage() {
 
   function update() {
     const n = selected.size;
-    countEl.textContent = n;
+    countEl.textContent = n + " " + (n === 1 ? "Producto" : "Productos");
     confirmBtn.classList.toggle("disabled", n === 0);
     const allSelected = n === PRODUCTS.length;
     selectAllBtn.classList.toggle("is-active", allSelected);
@@ -117,24 +99,38 @@ function initSelectionPage() {
   render();
 }
 
-/* ---------- Page 2: summary list (above the slider) ---------- */
-function initSummaryList() {
-  const el = document.getElementById("summaryList");
+/* ---------- Page 2: retiro items + clock ---------- */
+function initRetiroPage() {
+  const el = document.getElementById("retiroItems");
   if (!el) return;
 
   const items = Store.products();
   if (items.length === 0) {
-    // Nothing selected — go back to start.
     window.location.replace("./index.html");
     return;
   }
-  renderReadOnlyList(el, items);
 
-  const backBtn = document.getElementById("backBtn");
-  if (backBtn) {
-    backBtn.addEventListener("click", () => {
-      window.location.href = "./index.html";
-    });
+  const totalEl = document.getElementById("retiroTotal");
+  if (totalEl) totalEl.textContent = items.length;
+
+  el.innerHTML = "";
+  items.forEach((p) => {
+    const div = document.createElement("div");
+    div.className = "retiro-item";
+    div.innerHTML = `
+      <p class="retiro-item-qty">1</p>
+      <p class="retiro-item-name">${p.name}</p>`;
+    el.appendChild(div);
+  });
+
+  const timeEl = document.getElementById("retiroTime");
+  if (timeEl) {
+    function tick() {
+      const now = new Date();
+      timeEl.textContent = now.toLocaleTimeString("es-AR", { hour12: false });
+    }
+    tick();
+    setInterval(tick, 1000);
   }
 }
 
@@ -191,6 +187,6 @@ function renderReadOnlyList(el, items) {
 // Bootstrap whichever page we're on.
 document.addEventListener("DOMContentLoaded", () => {
   initSelectionPage();
-  initSummaryList();
+  initRetiroPage();
   initConfirmedList();
 });

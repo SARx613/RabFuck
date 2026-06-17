@@ -1,66 +1,76 @@
-/* ===== Reset & base ===== */
+/* ===== Reset & base — exact Skipit original ===== */
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap");
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
   -webkit-tap-highlight-color: transparent;
 }
+::-webkit-scrollbar { display: none; }
 
 :root {
   --ink: #0a1112;
-  --muted: #6b7280;
-  --bg: #ffffff;
-  --surface: #f5f6f7;
-  --border: #e6e8ea;
-  --accent: #c0392b;        /* Rabieta red */
-  --accent-dark: #a5301f;
-  --beer: #f0a500;
+  --muted: #717d7f;
+  --bg: #fafafa;
+  --surface: #fdfdfd;
+  --border: #d6dadb;
+  --green: #3bd58b;
+  --dark: #04252b;
   --safe-bottom: env(safe-area-inset-bottom, 0px);
 }
 
-html, body {
-  height: 100%;
-}
+html, body { height: 100%; }
 
 body {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-  background: var(--bg);
+  font-family: Manrope, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizelegibility;
+  background-color: var(--bg);
   color: var(--ink);
-  letter-spacing: -0.02rem;
-  overscroll-behavior: none;
+  scroll-behavior: smooth;
+  width: 100vw;
+  height: 100dvh;
 }
 
-/* ===== App layout (mobile-first, phone frame on desktop) ===== */
+button { font-family: Manrope, sans-serif; }
+
+/* ===== App layout ===== */
 .app {
   position: relative;
   display: flex;
   flex-direction: column;
   width: 100%;
-  max-width: 480px;
-  min-height: 100vh;
-  min-height: 100dvh;
+  max-width: 600px;
+  height: 100dvh;
   margin: 0 auto;
-  background: var(--bg);
 }
 
 .content {
   flex: 1;
   display: flex;
   flex-direction: column;
-  padding: 0 16px;
-  padding-bottom: calc(76px + var(--safe-bottom));
+  height: 100%;
+  overflow-y: auto;
 }
 
 /* ===== Header ===== */
 .header {
-  display: flex;
+  justify-content: space-between;
   align-items: center;
-  gap: 8px;
-  padding: 20px 0 12px;
-  position: sticky;
-  top: 0;
-  background: var(--bg);
-  z-index: 10;
+  padding: 12px 18px;
+  display: flex;
+}
+
+.header .title {
+  text-align: right;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
+  display: flex;
 }
 
 .title-text {
@@ -68,75 +78,81 @@ body {
   font-weight: 700;
   color: var(--ink);
   letter-spacing: -0.02rem;
+  display: inline;
+  height: fit-content;
 }
-
-.back-button {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 36px;
-  height: 36px;
-  margin-left: -8px;
-  border: none;
-  background: transparent;
-  color: var(--ink);
-  cursor: pointer;
-  border-radius: 50%;
-}
-.back-button:active { background: var(--surface); }
 
 /* ===== Main content ===== */
 .main-content {
+  padding: 1rem;
   flex: 1;
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
 }
 
+/* ===== Info container ===== */
 .info-container {
-  display: flex;
-  align-items: center;
+  background-color: var(--surface);
+  border-radius: 20px;
   justify-content: space-between;
-  gap: 12px;
-  margin: 4px 0 8px;
+  align-items: flex-start;
+  width: 100%;
+  margin-bottom: 12px;
+  padding: 10px 20px;
+  display: flex;
+  box-shadow: 0 2px 15px rgba(163, 172, 173, 0.1);
 }
 
 .info-box {
-  display: flex;
   flex-direction: column;
-  gap: 2px;
+  justify-content: center;
+  align-items: flex-start;
+  width: 100%;
+  display: flex;
 }
 
 .info-primary {
   font-size: 14px;
   font-weight: 600;
   color: var(--ink);
+  display: inline;
+  letter-spacing: -0.02rem;
+  height: fit-content;
 }
 
 .info-secondary {
   font-size: 12px;
   font-weight: 500;
   color: var(--ink);
-  opacity: 0.7;
+  display: inline;
+  letter-spacing: -0.02rem;
+  height: fit-content;
 }
 
+/* ===== Pill button (Todos) ===== */
 .pill-button {
-  border: 1px solid var(--border);
-  background: var(--bg);
-  border-radius: 999px;
-  padding: 8px 16px;
+  white-space: nowrap;
+  border-radius: 16px;
+  padding: 6px 18px;
+  transition: all 0.2s;
+  background-color: var(--surface) !important;
+  border: 1px solid var(--border) !important;
+  cursor: pointer;
+  font-family: Manrope, sans-serif;
+}
+
+.pill-button p {
   font-size: 14px;
   font-weight: 500;
   color: var(--ink);
-  cursor: pointer;
-  white-space: nowrap;
-  transition: background 0.15s ease, border-color 0.15s ease;
+  display: inline;
+  letter-spacing: -0.02rem;
+  height: fit-content;
 }
-.pill-button:active { background: var(--surface); }
+
 .pill-button.is-active {
-  background: var(--ink);
-  border-color: var(--ink);
-  color: #fff;
+  background-color: var(--dark) !important;
+}
+.pill-button.is-active p {
+  color: #f2f2f2 !important;
 }
 
 /* ===== Product list ===== */
@@ -144,198 +160,238 @@ body {
   list-style: none;
   display: flex;
   flex-direction: column;
-  gap: 10px;
-  margin-top: 4px;
+  gap: 0;
 }
 
 .product-item {
-  display: flex;
-  align-items: center;
-  gap: 14px;
-  padding: 12px;
-  border: 1px solid var(--border);
-  border-radius: 16px;
-  background: var(--bg);
   cursor: pointer;
-  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+  background-color: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 11px;
+  padding: 1rem;
+  transition: all 0.2s;
+  display: flex;
+}
+.product-item:active {
+  transform: scale(0.98);
 }
 .product-item.selected {
-  border-color: var(--accent);
-  box-shadow: 0 0 0 1px var(--accent) inset;
+  border: 1px solid var(--ink);
 }
 
 .product-image {
-  width: 56px;
-  height: 56px;
-  flex-shrink: 0;
-  border-radius: 12px;
+  background-color: #f3f4f6;
+  border-radius: 16px;
+  width: 44px;
+  min-width: 44px;
+  height: 44px;
   overflow: hidden;
-  background: var(--surface);
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 .product-image img {
+  object-fit: cover;
   width: 100%;
   height: 100%;
-  object-fit: contain;
 }
 
 .product-info {
+  flex-direction: column;
   flex: 1;
+  gap: 4px;
   min-width: 0;
+  display: flex;
 }
 
 .product-name {
   font-size: 16px;
   font-weight: 800;
   color: var(--ink);
+  display: inline;
+  letter-spacing: -0.02rem;
+  height: fit-content;
 }
 
 .product-meta {
   font-size: 13px;
   font-weight: 500;
   color: var(--muted);
-  margin-top: 2px;
 }
 
-/* Checkbox */
+/* ===== Checkbox (native, exact Skipit) ===== */
 .radio {
-  position: relative;
-  width: 24px;
-  height: 24px;
-  flex-shrink: 0;
+  justify-content: center;
+  align-items: center;
+  display: flex;
 }
-.radio input {
-  position: absolute;
-  inset: 0;
-  opacity: 0;
+
+.radio input[type=checkbox] {
+  accent-color: var(--dark);
   cursor: pointer;
+  width: 18px;
+  height: 18px;
   margin: 0;
 }
-.radio span {
-  display: block;
-  width: 24px;
-  height: 24px;
-  border: 2px solid var(--border);
-  border-radius: 50%;
-  transition: background 0.15s ease, border-color 0.15s ease;
-}
-.radio input:checked + span {
-  background: var(--accent);
-  border-color: var(--accent);
-}
-.radio input:checked + span::after {
-  content: "";
-  position: absolute;
-  left: 8px;
-  top: 4px;
-  width: 6px;
-  height: 11px;
-  border: solid #fff;
-  border-width: 0 2.5px 2.5px 0;
-  transform: rotate(45deg);
-}
+
+.radio span { display: none; }
 
 /* ===== Action bar ===== */
 .action-buttons {
-  position: fixed;
+  z-index: 10;
+  background-color: #f7f7f7;
+  width: 100%;
+  margin-top: auto;
+  padding: 16px 16px 65px;
+  position: sticky;
+  bottom: 0;
   left: 0;
-  right: 0;
-  bottom: calc(64px + var(--safe-bottom));
-  max-width: 480px;
-  margin: 0 auto;
-  padding: 12px 16px;
-  background: linear-gradient(to top, var(--bg) 70%, transparent);
+  box-shadow: 0 -4px 6px -1px rgba(0,0,0,0.1);
 }
 
 .button-container {
-  display: flex;
-  align-items: center;
   justify-content: space-between;
-  gap: 12px;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  display: flex;
+}
+
+.button-container > :first-child {
+  white-space: nowrap;
+  flex-shrink: 0;
+  min-width: 0;
+}
+.button-container > :last-child {
+  flex-shrink: 1;
+  min-width: fit-content;
 }
 
 .count-text {
   font-size: 18px;
   font-weight: 700;
   color: var(--ink);
+  display: inline;
+  letter-spacing: -0.02rem;
+  height: fit-content;
 }
 
+/* ===== Primary button (Confirmar Retiro) ===== */
 .primary-button {
-  flex: 1;
-  max-width: 220px;
-  border: none;
-  background: var(--accent);
-  color: #fff;
-  border-radius: 14px;
-  padding: 16px 20px;
-  font-size: 18px;
-  font-weight: 600;
+  text-align: center;
   cursor: pointer;
-  transition: background 0.15s ease, transform 0.1s ease, opacity 0.15s ease;
+  color: var(--ink);
+  white-space: nowrap;
+  background-color: var(--green);
+  border: none;
+  border-radius: 25px;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 42px;
+  padding: 10px 20px;
+  font-size: 16.01px;
+  line-height: 1rem;
+  text-decoration: none;
+  transition: background-color 0.3s, transform 0.3s, opacity 0.3s;
+  display: inline-flex;
+  font-family: Manrope, sans-serif;
 }
-.primary-button:active { transform: scale(0.98); background: var(--accent-dark); }
+
+.primary-button p {
+  font-size: 18px;
+  font-weight: 500;
+  color: var(--ink);
+  display: inline;
+  letter-spacing: -0.02rem;
+  height: fit-content;
+}
+
+.primary-button:hover:not(.disabled) {
+  background-color: #323232;
+}
+.primary-button:hover:not(.disabled) p {
+  color: #fff;
+}
+
 .primary-button.disabled {
-  background: var(--border);
-  color: var(--muted);
   pointer-events: none;
+  opacity: 0.6;
+  color: #fff !important;
+  cursor: not-allowed !important;
+  background-color: #d4d4d4 !important;
+}
+.primary-button.disabled p {
+  color: #fff !important;
 }
 
 /* ===== Bottom navigation ===== */
 .navigation-bar {
+  z-index: 1000;
+  padding-bottom: env(safe-area-inset-bottom);
+  backface-visibility: hidden;
+  will-change: transform;
+  background-color: var(--bg);
   position: fixed;
+  bottom: 0;
   left: 0;
   right: 0;
-  bottom: 0;
-  max-width: 480px;
-  margin: 0 auto;
-  background: var(--bg);
-  border-top: 1px solid var(--border);
-  padding-bottom: var(--safe-bottom);
-  z-index: 20;
+  transform: translateZ(0);
+  box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
 }
 
 .nav-container {
-  display: flex;
-  align-items: center;
   justify-content: space-around;
-  height: 64px;
+  align-items: center;
+  width: 100%;
+  margin: 0 auto;
+  padding: 1px 5px;
+  display: flex;
 }
 
 .nav-item {
-  flex: 1;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: transparent;
-  border: none;
   cursor: pointer;
-  height: 100%;
+  color: inherit;
+  -webkit-tap-highlight-color: transparent;
+  appearance: none;
+  min-width: 70px;
+  background-color: transparent;
+  border: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+  padding: 6px 10px;
+  transition: all 0.3s;
+  display: flex;
+  font-family: Manrope, sans-serif;
 }
 
 .icon-wrapper {
-  display: flex;
-  align-items: center;
+  border-radius: 50%;
   justify-content: center;
-  width: 44px;
-  height: 44px;
-  border-radius: 12px;
+  align-items: center;
+  width: 52px;
+  height: 40px;
+  transition: all 0.3s;
+  display: flex;
+  position: relative;
   color: var(--muted);
-  transition: color 0.15s ease, background 0.15s ease;
-}
-.icon-wrapper.active {
-  color: var(--accent);
-  background: rgba(192, 57, 43, 0.08);
 }
 
-/* ===== Slide to confirm (Page 2) ===== */
+.icon-wrapper.active svg {
+  color: var(--green);
+  transform: scale(1.1);
+}
+
+/* ===== Slide to confirm (shared base) ===== */
 .slide-container {
   position: relative;
   width: 100%;
   height: 60px;
   border-radius: 16px;
-  background: var(--surface);
+  background: #f5f6f7;
   border: 1px solid var(--border);
   overflow: hidden;
   user-select: none;
@@ -348,7 +404,7 @@ body {
   top: 0;
   bottom: 0;
   width: 60px;
-  background: var(--accent);
+  background: var(--dark);
   border-radius: 16px;
   transition: width 0.05s linear;
 }
@@ -375,9 +431,9 @@ body {
   left: 4px;
   width: 52px;
   height: 52px;
-  border-radius: 12px;
-  background: var(--accent);
-  color: #fff;
+  border-radius: 50%;
+  background: var(--surface);
+  color: var(--dark);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -386,12 +442,6 @@ body {
   touch-action: none;
 }
 .slide-thumb:active { cursor: grabbing; }
-.slide-container.complete .slide-thumb {
-  background: #1e9e54;
-}
-.slide-container.complete .slide-fill {
-  background: #1e9e54;
-}
 
 /* ===== Success screen (Page 3) ===== */
 .success-screen {
@@ -410,7 +460,7 @@ body {
   width: 96px;
   height: 96px;
   border-radius: 50%;
-  background: #1e9e54;
+  background: var(--green);
   color: #fff;
   display: flex;
   align-items: center;
@@ -459,7 +509,7 @@ body {
   font-size: 30px;
   font-weight: 800;
   letter-spacing: 0.15rem;
-  color: var(--accent);
+  color: var(--green);
 }
 
 .success-screen .primary-button {

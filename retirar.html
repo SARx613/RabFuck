@@ -3,55 +3,69 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <meta name="theme-color" content="#ffffff">
-  <title>Rabieta · Confirmar retiro</title>
+  <meta name="theme-color" content="#f87171">
+  <title>Rabieta · Retiro</title>
   <link rel="icon" type="image/svg+xml" href="./assets/favicon.svg">
   <link rel="stylesheet" href="./assets/styles.css">
+  <link rel="stylesheet" href="./assets/retiro.css">
 </head>
 <body>
-  <div class="app">
-    <div class="content">
-      <!-- Header with back button -->
-      <header class="header">
-        <button class="back-button" id="backBtn" type="button" aria-label="Volver">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M15 18L9 12L15 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
-          </svg>
-        </button>
-        <div class="title">
-          <p class="title-text">Confirmar retiro</p>
-        </div>
-      </header>
-
-      <!-- Main content -->
-      <div class="main-content">
-        <div class="info-container">
-          <div class="info-box">
-            <p class="info-primary">Deslizá para confirmar.</p>
-            <p class="info-secondary">Mostrá esta pantalla en el mostrador.</p>
-          </div>
-        </div>
-
-        <!-- Selected products summary -->
-        <ul class="product-list" id="summaryList"></ul>
+  <main class="retiro-main">
+    <!-- Header -->
+    <header class="header">
+      <div class="title">
+        <p class="title-text">Retiro</p>
       </div>
+    </header>
 
-      <!-- Slide-to-confirm -->
-      <div class="action-buttons">
-        <div class="slide-container" id="slideContainer">
-          <div class="slide-fill" id="slideFill"></div>
-          <div class="slide-track">
-            <span class="slide-label" id="slideLabel">Deslizá para retirar</span>
-          </div>
-          <div class="slide-thumb" id="slideThumb">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M9 6L15 12L9 18" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"></path>
-            </svg>
-          </div>
-        </div>
-      </div>
+    <!-- Warning badge -->
+    <div class="retiro-badge">
+      <p>¡NO hagas swipe antes de retirar!</p>
     </div>
-  </div>
+
+    <!-- Card -->
+    <div class="retiro-card">
+      <!-- Store header -->
+      <div class="retiro-store">
+        <div class="retiro-store-logo">
+          <img src="https://assets.skipit.com.ar/60/logo_60_1742138900273" width="50" height="50" alt="Rabieta Palermo">
+        </div>
+        <div class="retiro-store-info">
+          <p class="retiro-store-name">Rabieta Palermo</p>
+          <p class="retiro-store-sub">Ingreso - .</p>
+        </div>
+      </div>
+      <p class="retiro-time">Hora  <span id="retiroTime">--:--:--</span></p>
+
+      <!-- Separator -->
+      <div class="retiro-separator"></div>
+
+      <!-- Items header -->
+      <div class="retiro-items-header">
+        <p class="retiro-items-title">Estas retirando</p>
+        <p class="retiro-items-total"><span class="retiro-total-label">Total:</span><span id="retiroTotal">0</span></p>
+      </div>
+
+      <!-- Items list -->
+      <div class="retiro-items-list" id="retiroItems"></div>
+    </div>
+
+    <!-- Swipe to confirm -->
+    <div class="retiro-actions">
+      <div class="slide-container" id="slideContainer">
+        <div class="slide-fill" id="slideFill"></div>
+        <div class="slide-track">
+          <span class="slide-label" id="slideLabel">Retirado</span>
+        </div>
+        <div class="slide-thumb" id="slideThumb" draggable="false" tabindex="0">
+          <svg width="35" height="35" viewBox="0 0 25 25" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+            <path d="M7.83114 19.7627C8.25416 20.2524 8.9744 20.3332 9.49325 19.9697L9.59481 19.8916L17.0401 13.4609C17.3151 13.2235 17.4727 12.8779 17.4727 12.5146C17.4727 12.1515 17.3149 11.8067 17.0401 11.5693L9.59481 5.13867L9.49325 5.05957C8.97439 4.69625 8.25409 4.77784 7.83114 5.26758C7.38019 5.78995 7.43793 6.57906 7.96005 7.03027L14.3106 12.5156L7.96005 17.999L7.86825 18.0879C7.43298 18.5483 7.40809 19.2728 7.83114 19.7627Z" fill="currentColor"></path>
+          </svg>
+        </div>
+      </div>
+      <p class="retiro-swipe-hint">Deslizá para confirmar que retiraste tus productos</p>
+    </div>
+  </main>
 
   <script src="./assets/app.js"></script>
   <script src="./assets/slider.js"></script>
